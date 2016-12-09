@@ -22,11 +22,17 @@ class Arena
     elsif @gladiators.length == 1
       return @gladiators
     elsif @gladiators.length == 2
-      if @gladiators[1].weapon == "Spear"
-        return @gladiators[1]
-      end
-        
-    end
-  end
 
-end
+
+      if @gladiators[1].weapon == @gladiators[0].weapon
+        @gladiators = []
+        return @gladiators
+      elsif @gladiators[0].weapon == "Spear" && @gladiators[1].weapon == "Trident"
+        @gladiators = @gladiators[0]
+        return @gladiators
+      end
+
+    end#if 0
+  end#def fight
+
+end#class Arena
