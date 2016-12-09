@@ -4,6 +4,7 @@ class Arena
   def initialize(name)
     @name = name.capitalize
     @gladiators = []
+    count = 0
   end
 
   def gladiators
@@ -24,13 +25,31 @@ class Arena
     elsif @gladiators.length == 2
 
 
-      if @gladiators[1].weapon == @gladiators[0].weapon
+      if @gladiators[0].weapon == @gladiators[1].weapon
         @gladiators = []
         return @gladiators
-      elsif @gladiators[0].weapon == "Spear" && @gladiators[1].weapon == "Trident"
-        @gladiators = @gladiators[0]
-        return @gladiators
-      end
+
+      elsif @gladiators[0].weapon == "Spear"
+
+          if @gladiators[1].weapon == "Trident"
+            @gladiators.delete_at(0)
+            return @gladiators
+          elsif @gladiators[1].weapon == "Club"
+            @gladiators.delete_at(1)
+            return @gladiators
+          end
+
+      elsif @gladiators[0].weapon == "Trident"
+
+          if @gladiators[1].weapon == "Spear"
+            @gladiators.delete_at(1)
+            return @gladiators
+          elsif @gladiators[1].weapon == "Club"
+            @gladiators.delete_at(0)
+            return @gladiators
+          end
+
+      end# if weapon
 
     end#if 0
   end#def fight

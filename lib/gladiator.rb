@@ -1,13 +1,13 @@
 class Gladiator
   attr_accessor :name
 
-  def initialize(name, last_name)
+  def initialize(name, weapon)
   @name = name
-  @last_name = last_name
-  @weapon = 'Sword'
+  @weapon = weapon
   end
 
   def weapon
     return @weapon
   end
+  
 end
