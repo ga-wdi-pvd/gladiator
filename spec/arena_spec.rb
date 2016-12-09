@@ -7,6 +7,7 @@ require './lib/arena'
 require './lib/gladiator'
 
 describe Arena do
+
   let(:arena){Arena.new("megalopolis")}
   let(:maximus){Gladiator.new("Maximus","Spear")}
   let(:bilcephalon){Gladiator.new("Bilcephalon","Trident")}
@@ -26,6 +27,18 @@ describe Arena do
   describe "#gladiators" do
     it "starts empty" do
       expect(arena.gladiators).to eq([])
+    end
+  end
+
+  describe "#kill" do
+    before do
+      # add some gladiators
+      arena.add_gladiator(maximus)
+      arena.add_gladiator(ephates)
+    end
+    it "removes the gladiator passed in from @gladiators" do
+      arena.kill(maximus)
+      expect(arena.gladiators).to eq([ephates])
     end
   end
 
